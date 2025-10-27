@@ -1202,9 +1202,8 @@ body {
 .secondary-hero-cta {
   color: #066;
   font-size: 1.18rem;
-  margin: 0 0 10px 0;
   font-weight: bold;
-  text-align: center;
+  text-align: right;
 }
 
 /* Problem/Solution Section */
