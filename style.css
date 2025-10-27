@@ -1190,17 +1190,19 @@ body {
 }
 .secondary-hero-list {
   display: inline-block;
-  margin:  10px 0;
+  margin: 0 0 10px 0;
   text-align: center;
   padding: 0;
 }
 .secondary-hero-list li {
   margin-bottom: 12px;
+  margin: 0 0 10px 0;
   text-align: center;
 }
 .secondary-hero-cta {
   color: #066;
   font-size: 1.18rem;
+  margin: 0 0 10px 0;
   font-weight: bold;
   text-align: center;
 }
