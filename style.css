@@ -1170,6 +1170,10 @@ body {
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
 }
+.secondary-hero {
+  text-align: center;
+}
+
 .secondary-hero-title {
   color: #0074D9;
   font-size: 2.5rem;
@@ -1189,19 +1193,20 @@ body {
   text-align: center;
 }
 .secondary-hero-list {
-  display: inline-block;
-  margin: 0 0 10px 0;
-  text-align: center;
+  display: table;
+  margin: 0 auto 18px auto;
+  text-align: left;
 }
 .secondary-hero-list li {
   margin: 0 0 10px 0;
   text-align: center;
 }
 .secondary-hero-cta {
-  color: #066;
-  font-size: 1.18rem;
-  font-weight: bold;
+  display: block;
+  width: 100%;
   text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
 }
 
 /* Problem/Solution Section */
