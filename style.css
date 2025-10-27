@@ -1190,7 +1190,7 @@ body {
 }
 .secondary-hero-list {
   display: inline-block;
-  text-align: left;
+  text-align: center;
   margin: 18px auto;
   padding: 0;
 }
