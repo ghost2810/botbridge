@@ -1190,8 +1190,8 @@ body {
 }
 .secondary-hero-list {
   display: inline-block;
+    margin: 0 0 10px 0;
   text-align: center;
-  margin: 18px auto;
   padding: 0;
 }
 .secondary-hero-list li {
