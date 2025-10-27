@@ -1192,7 +1192,6 @@ body {
   display: inline-block;
   margin: 0 0 10px 0;
   text-align: center;
-  padding: 0;
 }
 .secondary-hero-list li {
   margin-bottom: 12px;
@@ -1203,7 +1202,7 @@ body {
   color: #066;
   font-size: 1.18rem;
   font-weight: bold;
-  text-align: left;
+  text-align: center;
 }
 
 /* Problem/Solution Section */
