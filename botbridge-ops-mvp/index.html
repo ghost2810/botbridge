@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BotBridge Ops - ITSM Automation Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="6" fill="var(--color-primary)"/>
+                        <path d="M8 12h7v3H8v-3zm0 5h7v3H8v-3zm9-5h7v8h-7v-8z" fill="var(--color-btn-primary-text)"/>
+                    </svg>
+                    <span class="logo-text">BotBridge Ops</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-view="dashboard">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-view="incidents">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <span>Incidents</span>
+                </button>
+                <button class="nav-item" data-view="automation">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                    <span>Automation</span>
+                </button>
+                <button class="nav-item" data-view="analytics">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Analytics</span>
+                </button>
+                <button class="nav-item" data-view="settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6m9-9h-6m-6 0H3"></path>
+                    </svg>
+                    <span>Settings</span>
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">SM</div>
+                    <div class="user-info">
+                        <div class="user-name">Sarah Miller</div>
+                        <div class="user-role">IT Ops Manager</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Dashboard View -->
+            <div id="dashboard-view" class="view active">
+                <div class="view-header">
+                    <h1>Dashboard</h1>
+                    <div class="header-actions">
+                        <button class="btn btn--primary" onclick="showCreateIncidentModal()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            Create Incident
+                        </button>
+                    </div>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon" style="background: var(--color-bg-1);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-label">Mean Time to Resolve</div>
+                            <div class="kpi-value">2.3 hours</div>
+                            <div class="kpi-trend positive">↓ 12% from last week</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon" style="background: var(--color-bg-3);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-label">SLA Compliance</div>
+                            <div class="kpi-value">98.2%</div>
+                            <div class="kpi-trend positive">↑ 2.1% from last week</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon" style="background: var(--color-bg-5);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-label">Automation Success Rate</div>
+                            <div class="kpi-value">85%</div>
+                            <div class="kpi-trend positive">↑ 5% from last week</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon" style="background: var(--color-bg-2);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-warning)" stroke-width="2">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-label">Active Incidents</div>
+                            <div class="kpi-value">8</div>
+                            <div class="kpi-meta">2 escalated</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Live Incident Feed</h2>
+                            <span class="status-indicator pulse"></span>
+                        </div>
+                        <div class="incident-feed" id="incidentFeed"></div>
+                    </div>
+
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Integration Status</h2>
+                        </div>
+                        <div class="integration-list" id="integrationList"></div>
+                    </div>
+                </div>
+
+                <div class="dashboard-section full-width">
+                    <div class="section-header">
+                        <h2>Team Performance</h2>
+                    </div>
+                    <div class="team-grid" id="teamGrid"></div>
+                </div>
+            </div>
+
+            <!-- Incidents View -->
+            <div id="incidents-view" class="view">
+                <div class="view-header">
+                    <h1>Incident Management</h1>
+                    <div class="header-actions">
+                        <button class="btn btn--secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                            </svg>
+                            Filter
+                        </button>
+                        <button class="btn btn--primary" onclick="showCreateIncidentModal()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            New Incident
+                        </button>
+                    </div>
+                </div>
+
+                <div class="incident-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">12</span>
+                        <span class="stat-label">Created Today</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">15</span>
+                        <span class="stat-label">Resolved Today</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">8</span>
+                        <span class="stat-label">Active</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">2</span>
+                        <span class="stat-label">Escalated</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="incident-table-container" id="incidentTable"></div>
+                </div>
+            </div>
+
+            <!-- Automation View -->
+            <div id="automation-view" class="view">
+                <div class="view-header">
+                    <h1>Automation Workflows</h1>
+                    <div class="header-actions">
+                        <button class="btn btn--primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            Create Workflow
+                        </button>
+                    </div>
+                </div>
+
+                <div class="automation-grid">
+                    <div class="automation-card" id="workflowsList"></div>
+                </div>
+
+                <div class="dashboard-section full-width">
+                    <div class="section-header">
+                        <h2>System Architecture</h2>
+                    </div>
+                    <div class="architecture-diagram">
+                        <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/a56e5f272e154124b151cc7b98688601/acc315a1-86cc-4f5a-bb66-9416b6772d1f/2525cb41.png" alt="BotBridge Ops Architecture" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics View -->
+            <div id="analytics-view" class="view">
+                <div class="view-header">
+                    <h1>Analytics &amp; Reporting</h1>
+                    <div class="header-actions">
+                        <button class="btn btn--secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Export Report
+                        </button>
+                    </div>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="chart-card">
+                        <h3>Incident Volume Trend (Last 7 Days)</h3>
+                        <div class="chart-container">
+                            <canvas id="incidentVolumeChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Average Resolution Time (Hours)</h3>
+                        <div class="chart-container">
+                            <canvas id="resolutionTimeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-section full-width">
+                    <div class="section-header">
+                        <h2>Development Timeline</h2>
+                    </div>
+                    <div class="timeline-diagram">
+                        <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/a56e5f272e154124b151cc7b98688601/1f6026b0-1a09-4de9-bf01-2ca6e1a05b13/1c349487.png" alt="Development Timeline" />
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Cost Savings Calculator</h3>
+                        <div class="savings-calculator">
+                            <div class="calc-row">
+                                <div class="calc-item">
+                                    <label>Automated Incidents/Month:</label>
+                                    <span class="calc-value">340</span>
+                                </div>
+                                <div class="calc-item">
+                                    <label>Avg. Time Saved/Incident:</label>
+                                    <span class="calc-value">15 minutes</span>
+                                </div>
+                            </div>
+                            <div class="calc-row">
+                                <div class="calc-item">
+                                    <label>Total Hours Saved/Month:</label>
+                                    <span class="calc-value highlight">85 hours</span>
+                                </div>
+                                <div class="calc-item">
+                                    <label>Estimated Cost Savings:</label>
+                                    <span class="calc-value highlight">$5,100/month</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings View -->
+            <div id="settings-view" class="view">
+                <div class="view-header">
+                    <h1>Settings &amp; Administration</h1>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Integration Management</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="settings-section" id="integrationSettings"></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Notification Preferences</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="settings-section">
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        <span>Email notifications for critical incidents</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        <span>SMS alerts for escalations</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox">
+                                        <span>Daily summary reports</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        <span>Teams/Slack notifications</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>API Keys</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="settings-section">
+                                <div class="api-key-item">
+                                    <div class="api-key-info">
+                                        <span class="api-key-name">Production API Key</span>
+                                        <code class="api-key-value">bb_prod_••••••••••••3x9k</code>
+                                    </div>
+                                    <button class="btn btn--sm btn--secondary">Regenerate</button>
+                                </div>
+                                <div class="api-key-item">
+                                    <div class="api-key-info">
+                                        <span class="api-key-name">Staging API Key</span>
+                                        <code class="api-key-value">bb_stag_••••••••••••7m2p</code>
+                                    </div>
+                                    <button class="btn btn--sm btn--secondary">Regenerate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Escalation Policies</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="settings-section">
+                                <div class="policy-item">
+                                    <div class="policy-info">
+                                        <span class="policy-name">Critical Incidents</span>
+                                        <span class="policy-desc">Escalate after 30 minutes</span>
+                                    </div>
+                                    <button class="btn btn--sm btn--outline">Edit</button>
+                                </div>
+                                <div class="policy-item">
+                                    <div class="policy-info">
+                                        <span class="policy-name">High Priority</span>
+                                        <span class="policy-desc">Escalate after 2 hours</span>
+                                    </div>
+                                    <button class="btn btn--sm btn--outline">Edit</button>
+                                </div>
+                                <div class="policy-item">
+                                    <div class="policy-info">
+                                        <span class="policy-name">Security Events</span>
+                                        <span class="policy-desc">Immediate escalation</span>
+                                    </div>
+                                    <button class="btn btn--sm btn--outline">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Create Incident Modal -->
+    <div id="createIncidentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Incident</h2>
+                <button class="modal-close" onclick="closeCreateIncidentModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="createIncidentForm" onsubmit="handleCreateIncident(event)">
+                    <div class="form-group">
+                        <label class="form-label">Title *</label>
+                        <input type="text" class="form-control" placeholder="Brief description of the issue" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description *</label>
+                        <textarea class="form-control" rows="4" placeholder="Detailed description of the incident" required></textarea>
+                        <div class="ai-suggestion">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            </svg>
+                            <span>AI Suggestion: This appears to be a network connectivity issue</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Priority *</label>
+                            <select class="form-control" required>
+                                <option value="">Select priority</option>
+                                <option value="Critical">Critical</option>
+                                <option value="High">High</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Low">Low</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Category *</label>
+                            <select class="form-control" required>
+                                <option value="">Select category</option>
+                                <option value="Infrastructure">Infrastructure</option>
+                                <option value="Network">Network</option>
+                                <option value="Database">Database</option>
+                                <option value="Application">Application</option>
+                                <option value="Security">Security</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Assign To</label>
+                        <select class="form-control">
+                            <option value="">Auto-assign based on category</option>
+                            <option value="network">Network Operations Team</option>
+                            <option value="security">Security Team</option>
+                            <option value="database">Database Team</option>
+                            <option value="application">Application Support</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn--secondary" onclick="closeCreateIncidentModal()">Cancel</button>
+                        <button type="submit" class="btn btn--primary">Create Incident</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
