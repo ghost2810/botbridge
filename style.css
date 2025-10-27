@@ -1174,12 +1174,15 @@ body {
   background: #e0f7fa;
   border-radius: 12px;
   box-shadow: 0 2px 10px #00b4d833;
-  margin: 48px auto;
   max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 48px;
+  margin-bottom: 48px;
   padding: 32px 28px;
   text-align: center;
+  display: block;
 }
-
 .secondary-hero-title {
   color: #0074D9;
   font-size: 2.5rem;
@@ -1187,34 +1190,26 @@ body {
   margin: 0 0 18px 0;
   text-align: center;
 }
-
 .secondary-hero-lead {
   font-size: 1.25rem;
   font-weight: bold;
   margin: 0 0 10px 0;
   text-align: center;
 }
-
 .secondary-hero-desc {
   font-size: 1.15rem;
   margin-bottom: 24px;
   text-align: center;
 }
-
 .secondary-hero-list {
-  list-style-position: inside;
-  font-size: 1.13rem;
-  line-height: 1.7;
-  margin: 18px auto 18px auto;
-  padding: 0;
   display: inline-block;
-  text-align: left;         
+  text-align: left;
+  margin: 18px auto;
+  padding: 0;
 }
-
 .secondary-hero-list li {
   margin-bottom: 12px;
 }
-
 .secondary-hero-cta {
   color: #066;
   font-size: 1.18rem;
