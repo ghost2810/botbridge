@@ -1170,14 +1170,6 @@ body {
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
 }
-.secondary-hero {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 48px;
-  margin-bottom: 48px;
-  text-align: center;
-  background: none;
-}
 .secondary-hero-title {
   color: #0074D9;
   font-size: 2.5rem;
