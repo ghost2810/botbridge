@@ -25,7 +25,6 @@
       </div>
     </nav>
   </header>
-
   <!-- Hero -->
   <main>
     <section class="bb-hero container" id="home">
@@ -37,9 +36,9 @@
           <a class="bb-btn" href="#demo">See live demo</a>
         </div>
         <ul class="bb-hero-metrics">
-          <li><strong>42%</strong> lower MTTR</li>
-          <li><strong>98%</strong> SLA compliance</li>
-          <li><strong>80%</strong> routine tickets automated</li>
+          <li>42% lower MTTR</li>
+          <li>98% SLA compliance</li>
+          <li>80% routine tickets automated</li>
         </ul>
       </div>
       <div class="bb-hero-visual">
@@ -48,7 +47,7 @@
           <div class="bb-code">
             <pre>
 Incident: VPN not connecting from home
-AI Triage: Network > VPN > Client
+AI Triage: Network &gt; VPN &gt; Client
 Next steps: Run diagnostics, reset profile, push config
 Auto-resolution: 2m 14s
             </pre>
@@ -56,7 +55,6 @@ Auto-resolution: 2m 14s
         </div>
       </div>
     </section>
-
     <!-- Features -->
     <section class="bb-section container" id="features">
       <header class="bb-section-header">
@@ -93,7 +91,6 @@ Auto-resolution: 2m 14s
         </article>
       </div>
     </section>
-
     <!-- How it works -->
     <section class="bb-section container" id="how-it-works">
       <header class="bb-section-header">
@@ -102,34 +99,33 @@ Auto-resolution: 2m 14s
       </header>
       <ol class="bb-steps">
         <li>
-          <h4>Connect your tools</h4>
+          <h3>Connect your tools</h3>
           <p>Plug into ServiceNow, Jira, Slack, identity providers, and cloud providers.</p>
         </li>
         <li>
-          <h4>Import knowledge</h4>
+          <h3>Import knowledge</h3>
           <p>Sync KB articles, SOPs, and past tickets to ground agent responses.</p>
         </li>
         <li>
-          <h4>Define safe actions</h4>
+          <h3>Define safe actions</h3>
           <p>Establish approval flows, change windows, and escalation paths.</p>
         </li>
         <li>
-          <h4>Launch and learn</h4>
+          <h3>Launch and learn</h3>
           <p>Monitor performance dashboards and continuously improve with feedback loops.</p>
         </li>
       </ol>
     </section>
-
     <!-- Pricing -->
     <section class="bb-section container" id="pricing">
       <header class="bb-section-header">
         <h2>Simple, scalable pricing</h2>
-        <p class="bb-sub">Start free. Upgrade when you’re ready for automation at scale.</p>
+        <p class="bb-sub">Start free. Upgrade when you're ready for automation at scale.</p>
       </header>
       <div class="bb-grid three bb-pricing">
         <article class="bb-card price">
           <h3>Starter</h3>
-          <p class="bb-price">$0<span>/mo</span></p>
+          <p class="bb-price">$0/mo</p>
           <ul class="bb-list">
             <li>Up to 3 agents</li>
             <li>Community integrations</li>
@@ -140,7 +136,7 @@ Auto-resolution: 2m 14s
         <article class="bb-card price popular">
           <div class="bb-tag">Most popular</div>
           <h3>Team</h3>
-          <p class="bb-price">$299<span>/mo</span></p>
+          <p class="bb-price">$299/mo</p>
           <ul class="bb-list">
             <li>Up to 25 agents</li>
             <li>Enterprise integrations</li>
@@ -160,7 +156,6 @@ Auto-resolution: 2m 14s
         </article>
       </div>
     </section>
-
     <!-- FAQ -->
     <section class="bb-section container" id="faq">
       <header class="bb-section-header">
@@ -180,12 +175,11 @@ Auto-resolution: 2m 14s
       </details>
     </section>
   </main>
-
   <!-- Footer -->
   <footer class="bb-footer">
     <div class="container bb-footer-grid">
       <div>
-        <strong>BotBridge Ops</strong>
+        <h4>BotBridge Ops</h4>
         <p>AI-powered IT operations automation.</p>
       </div>
       <div>
@@ -209,71 +203,5 @@ Auto-resolution: 2m 14s
       <p>© 2025 BotBridge Ops. All rights reserved.</p>
     </div>
   </footer>
-
-  <!-- Existing chatbot modal/button integration (preserved) -->
-  <button class="bb-chat-fab" id="bbChatOpen" aria-haspopup="dialog" aria-controls="bbChatModal">
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h16v12H7l-3 3V4z" fill="currentColor"/></svg>
-    Chat
-  </button>
-  <div class="bb-modal-backdrop" id="bbBackdrop" hidden></div>
-  <section class="bb-modal" id="bbChatModal" role="dialog" aria-modal="true" hidden>
-    <header class="bb-modal-header">
-      <div class="bb-title">
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor"/></svg>
-        <span>BotBridge Assistant</span>
-      </div>
-      <button class="bb-close" id="bbChatClose" aria-label="Close">✕</button>
-    </header>
-    <div class="bb-chat">
-      <div class="bb-messages" id="bbMessages">
-        <div class="bb-msg bot">Hi! I can help with incidents, requests, and automations.</div>
-      </div>
-      <div class="bb-input-row">
-        <input class="bb-input" id="bbInput" placeholder="Describe your IT issue…" />
-        <button class="bb-send" id="bbSend" disabled>Send</button>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    // Basic accessibility-friendly toggles for the preserved chat UI
-    const openBtn = document.getElementById('bbChatOpen');
-    const closeBtn = document.getElementById('bbChatClose');
-    const modal = document.getElementById('bbChatModal');
-    const backdrop = document.getElementById('bbBackdrop');
-    const input = document.getElementById('bbInput');
-    const send = document.getElementById('bbSend');
-
-    function openChat() {
-      modal.removeAttribute('hidden');
-      backdrop.removeAttribute('hidden');
-      input.focus();
-    }
-    function closeChat() {
-      modal.setAttribute('hidden', '');
-      backdrop.setAttribute('hidden', '');
-    }
-    openBtn?.addEventListener('click', openChat);
-    closeBtn?.addEventListener('click', closeChat);
-    backdrop?.addEventListener('click', closeChat);
-
-    input?.addEventListener('input', () => {
-      send.disabled = !input.value.trim();
-    });
-    send?.addEventListener('click', () => {
-      const text = input.value.trim();
-      if (!text) return;
-      const user = document.createElement('div');
-      user.className = 'bb-msg user';
-      user.textContent = text;
-      document.getElementById('bbMessages').appendChild(user);
-      input.value = '';
-      send.disabled = true;
-      const bot = document.createElement('div');
-      bot.className = 'bb-msg bot';
-      bot.textContent = 'Thanks! An agent will look into this.';
-      document.getElementById('bbMessages').appendChild(bot);
-    });
-  </script>
 </body>
 </html>
